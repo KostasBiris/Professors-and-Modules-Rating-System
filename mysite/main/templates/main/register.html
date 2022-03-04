@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<title>Register</title>
+	{% block title %}Register New User{% endblock %}
+	
+	{% load crispy_forms_tags %}
+
+	<p></p>
+	
+	{% block content %}
+		<div class="content-section">
+			<form method="POST" class="form-group">
+				{% csrf_token %}
+				<legend class="border-bottom mb-3">Enter Account details: </legend>
+				<p></p>
+				{{form|crispy}}
+				<button name="create", type="submit", class="btn btn-success">Register</button>
+			</form>
+		</div>
+	{% endblock %}
+</html>
