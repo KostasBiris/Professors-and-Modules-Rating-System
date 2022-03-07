@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<title>View</title>
+
+    {% block title %}View all Professor Ratings{% endblock %}
+
+    <br/>
+
+    {% block content %}
+
+        {% for professor in professors_list %}
+            
+            <p> The rating of professor {{ professor.name }} ({{ professor.code }}) is 
+                {% if professor.rating == 1 %} *
+                {% elif professor.rating == 2 %} **
+                {% elif professor.rating == 3 %} ***
+                {% elif professor.rating == 4 %} ****
+                {% elif professor.rating == 5 %} *****
+                {% endif %}</p>
+            
+        {% endfor %}
+    
+    {% endblock %}
+
+</html>

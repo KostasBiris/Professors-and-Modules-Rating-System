@@ -42,7 +42,10 @@ def logout_request(request):
 	logout(request)
 	return redirect("home")
 
-
 def list_request(request):
 	modules_list = Module.objects.all()
 	return render(request, 'main/list.html', {'modules_list': modules_list})
+
+def view_request(request):
+	professors_list = Professor.objects.all()
+	return render(request, 'main/view.html', {'professors_list': professors_list})
