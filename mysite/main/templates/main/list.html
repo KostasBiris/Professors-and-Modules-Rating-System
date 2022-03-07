@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<title>List</title>
+
+    {% block title %}List of all Modules{% endblock %}
+
+    <br/>
+
+    {% block content %}
+    <table class = "center">
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Semester</th>
+          <th>Taught by</th>
+        </tr>
+        
+        {% for module in modules_list %}
+            <tr>
+                <td style="text-align: center">{{ module.code }}</td>
+                <td style="text-align: center">{{ module.name }}</td>
+                <td style="text-align: center">{{ module.year }}</td>
+                <td style="text-align: center">{{ module.semester }}</td>
+                <td style="text-align: center">{% for professor in module.professors.all %}
+                     {{ professor.code }}, {{ professor.name }}, <br/> 
+                     {% endfor %}</td>
+            </tr>
+        {% endfor %}
+      </table>
+
+	{% endblock %}
+
+</html>
